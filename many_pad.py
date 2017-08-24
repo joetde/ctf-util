@@ -1,7 +1,7 @@
 
 from string import printable, letters, digits
 
-class OneTimePadSolver(object):
+class ManyPadSolver(object):
     BASIC_CHARS = letters + digits + ' [](){},.;:-'
 
     def __init__(self, binary, block_size):
@@ -48,7 +48,7 @@ class OneTimePadSolver(object):
                     else:
                         self._mapping[k] = [possibles[0]]
 
-        self._mapping = {k : OneTimePadSolver._highest_freq(l)
+        self._mapping = {k : ManyPadSolver._highest_freq(l)
                          for (k, l) in self._mapping.iteritems()}
         self._print_stats()
 
