@@ -1,8 +1,8 @@
 
-from string import printable, letters, digits
+from string import printable, ascii_letters, digits
 
 class ManyPadSolver(object):
-    BASIC_CHARS = letters + digits + ' [](){},.;:-'
+    BASIC_CHARS = ascii_letters + digits + ' [](){},.;:-'
 
     def __init__(self, binary, block_size):
         self._mapping = {}
@@ -26,7 +26,7 @@ class ManyPadSolver(object):
         return max_el
 
     def _print_stats(self):
-        print "found %s out of %s" % (len(self._mapping.keys()), self._block_size)
+        print("found %s out of %s" % (len(self._mapping.keys()), self._block_size))
 
     def build(self, allowed_chars = BASIC_CHARS):
         for off in range(len(self._binary) / self._block_size):
